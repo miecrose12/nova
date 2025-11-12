@@ -1,0 +1,242 @@
+/* ========================================
+   Tribe.css – FINAL: LEFT-ALIGNED LAYOUT
+   • Button, circles, icons, text → all flush-left
+   • Circles align with button's left edge
+   • Icon above text, right of circles
+   • Vertical divider between blocks
+   • Fully responsive
+   ======================================== */
+
+.tribe-container {
+  display: flex;
+  align-items: flex-start;        /* Align top */
+  justify-content: space-between;
+  padding: 80px 100px;
+  gap: 60px;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+}
+
+/* ────── LEFT SECTION ────── */
+.tribe-left {
+  flex: 1;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tribe-label {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: #6A0DAD;
+  margin: 0;
+}
+
+.tribe-title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 140%;
+  color: #0F0F0F;
+  margin: 0;
+}
+
+.tribe-description {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  color: #4D5761;
+  margin: 0;
+}
+
+.join-btn {
+  width: 167px;
+  height: 48px;
+  padding: 0 21px;
+  background-color: #F05658;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;         /* Aligns button to left */
+}
+.join-btn:hover {
+  background-color: #d94a4c;
+}
+
+/* ========================================
+   STATS SECTION – LEFT-ALIGNED
+   ======================================== */
+.stats-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  margin-top: 32px;
+  align-self: flex-start;         /* Aligns entire stats row to left */
+}
+
+/* Each stat block: [Circles]  [Icon + Text] */
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;                      /* Space between circles & content */
+}
+
+/* Circle Group – 4 touching circles */
+.circle-group {
+  position: relative;
+  width: 128px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  background: #E5E7EB;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.circle-1 { left: 0px;   z-index: 4; }
+.circle-2 { left: 32px;  z-index: 3; }
+.circle-3 { left: 64px;  z-index: 2; }
+.circle-4 { left: 96px;  z-index: 1; }
+
+/* Icon + Text (icon above text) */
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 105px;
+}
+
+.active-users-icon {
+  width: 105px;
+  height: 24px;
+}
+.experts-icon {
+  width: 66px;
+  height: 24px;
+}
+
+.stat-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: #4D5761;
+  margin: 0;
+  text-align: center;
+}
+
+/* VERTICAL DIVIDER LINE */
+.stat-divider {
+  width: 1px;
+  height: 80px;
+  background: #E5E7EB;
+  margin: 0 20px;
+  align-self: center;
+}
+
+/* ────── RIGHT SECTION ────── */
+.tribe-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.tribe-hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .tribe-container {
+    padding: 60px 60px;
+    gap: 40px;
+  }
+  .tribe-title { font-size: 32px; }
+  .tribe-description { font-size: 18px; }
+
+  .stats-container { gap: 50px; }
+  .stat-item { gap: 16px; }
+  .stat-divider { height: 70px; }
+
+  .circle-group { width: 112px; }
+  .circle { width: 40px; height: 40px; }
+  .circle-1 { left: 0; }
+  .circle-2 { left: 28px; }
+  .circle-3 { left: 56px; }
+  .circle-4 { left: 84px; }
+
+  .active-users-icon { width: 95px; height: 22px; }
+  .experts-icon      { width: 60px; height: 22px; }
+  .stat-content { gap: 6px; }
+}
+
+@media (max-width: 768px) {
+  .tribe-container {
+    flex-direction: column;
+    padding: 40px 30px;
+    text-align: center;
+  }
+  .tribe-left { max-width: 100%; align-items: center; }
+  .join-btn { align-self: center; }
+  .tribe-right { justify-content: center; margin-top: 40px; }
+  .tribe-hero-image { width: 100%; max-width: 480px; }
+
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .stat-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .stat-divider {
+    width: 80px;
+    height: 1px;
+    margin: 0;
+  }
+
+  .circle-group { width: 128px; }
+  .circle { width: 48px; height: 48px; }
+  .circle-1 { left: 0; }
+  .circle-2 { left: 32px; }
+  .circle-3 { left: 64px; }
+  .circle-4 { left: 96px; }
+}
+
+@media (max-width: 480px) {
+  .tribe-title { font-size: 28px; }
+  .tribe-description { font-size: 16px; }
+  .join-btn { width: 100%; max-width: 200px; }
+
+  .circle-group { transform: scale(0.85); width: 108px; }
+  .active-users-icon { width: 90px; height: 20px; }
+  .experts-icon      { width: 56px; height: 20px; }
+  .stat-text { font-size: 16px; }
+
+  .stats-container { gap: 28px; }
+  .stat-content { gap: 4px; }
+  .stat-divider { width: 60px; height: 1px; }
+}

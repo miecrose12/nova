@@ -1,0 +1,191 @@
+/* -------------------------------------------------
+   Grow – RESPONSIVE & BUTTON-SIZE FIXED
+   ------------------------------------------------- */
+
+.grow-container {
+  max-width: 1328px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 5rem) 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* ==== TYPOGRAPHY ==== */
+.main-heading {
+  font-weight: 600;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.4;
+  text-align: center;
+  color: #0F0F0F;
+  margin: 0 0 1rem;
+}
+
+.subheading {
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.4;
+  text-align: center;
+  color: #4D5761;
+  margin: 0 0 3.75rem;
+}
+
+/* ==== LAYOUT ==== */
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(2rem, 4vw, 3rem);
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* LEFT IMAGE */
+.left-image {
+  flex: 1 1 300px;
+  max-width: 655px;
+}
+.large-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 655 / 466;
+  border-radius: 1.25rem;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+/* RIGHT COLUMN */
+.right-column {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.right-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* RESOURCE ITEM */
+.resource-item { display: flex; flex-direction: column; gap: .5rem; }
+.title-row { display: flex; align-items: center; gap: .75rem; }
+.small-icon { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+.resource-title {
+  font-weight: 600;
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  line-height: 1.4;
+  color: #0F0F0F;
+  margin: 0;
+  white-space: normal;
+}
+.resource-desc {
+  font-weight: 500;
+  font-size: clamp(.875rem, 2vw, 1rem);
+  line-height: 1.4;
+  color: #4D5761;
+  margin: 0;
+  margin-left: 2.25rem;               /* icon + gap */
+}
+
+/* -------------------------------------------------
+   BUTTONS – FIXED SIZE & RESPONSIVE
+   ------------------------------------------------- */
+.button-group {
+  display: flex;
+  gap: 1.5rem;                         /* 24px */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Base button styles (desktop) */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  height: 3rem;                        /* 48px */
+  padding: 0 1.3125rem;                /* 21px */
+  border-radius: .75rem;               /* 12px */
+  font-weight: 600;
+  font-size: .875rem;                  /* 14px */
+  line-height: 1.4;
+  border: none;
+  cursor: pointer;
+  transition: background-color .3s, transform .2s;
+  /* Fixed width on large screens */
+  width: 15.21875rem;                  /* 243.5px */
+}
+
+/* Primary */
+.btn-primary {
+  background: #F05658;
+  color: #fff;
+}
+.btn-primary:hover,
+.btn-primary:focus { background:#e03e40; transform:translateY(-1px); }
+.btn-primary .arrow-icon { width:1.5rem; height:1.5rem; }
+
+/* Secondary */
+.btn-secondary {
+  background:#F3F4F6;
+  color:#F05658;
+  border:1px solid #E5E7EB;
+}
+.btn-secondary:hover,
+.btn-secondary:focus { background:#E5E7EB; transform:translateY(-1px); }
+
+/* -------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ------------------------------------------------- */
+
+/* Large Desktop – keep exact 243.5px width */
+@media (min-width: 1400px) {
+  .btn-primary,
+  .btn-secondary { width: 15.21875rem; }
+}
+
+/* Tablet – shrink a bit, side-by-side */
+@media (max-width: 1200px) {
+  .content-wrapper { flex-direction: column; align-items: center; }
+  .left-image, .right-column { max-width:100%; }
+
+  .button-group { justify-content: center; }
+
+  .btn-primary,
+  .btn-secondary {
+    width: clamp(11rem, 30vw, 13rem);   /* 176px → 208px */
+  }
+}
+
+/* Mobile – full-width, stacked */
+@media (max-width: 768px) {
+  .grow-container { padding:2.5rem 1rem; }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;                       /* full width */
+    max-width: none;
+  }
+
+  .resource-desc {
+    margin-left: 0;
+    padding-left: 2.25rem;
+    text-indent: -2.25rem;             /* keep visual alignment */
+  }
+}
+
+/* Tiny phones – smaller text */
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-secondary { font-size: .8125rem; }   /* 13px */
+}

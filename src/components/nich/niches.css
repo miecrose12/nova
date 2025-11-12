@@ -1,0 +1,214 @@
+/* src/components/nich/niches.css */
+* { box-sizing: border-box; }
+
+/* -------------------------------------------------
+   Layout & Typography
+   ------------------------------------------------- */
+.niches-section {
+  position: relative;
+  padding: 140px 20px 100px;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Header */
+.niches-header-wrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.niches-label {
+  margin-top: 120px;
+  font: 600 16px/140% 'Inter', system-ui, sans-serif;
+  color: #6A0DAD;
+  margin-bottom: 16px;
+}
+.niches-heading {
+  position: relative;
+  font: 600 36px/140% 'Inter', system-ui, sans-serif;
+  color: #101928;
+  margin: 0 auto 24px;
+}
+.niche-word {
+  position: relative;
+  display: inline-block;          /* needed for absolute child */
+}
+.niches-floating-image {
+  position: absolute;
+  width: 99.879px;
+  height: 85.838px;
+  bottom: 32.13px;
+  left: 77%;
+  transform: translateX(-50%) rotate(15.29deg);
+  pointer-events: none;
+  z-index: 10;
+}
+.niches-subtext {
+  font: 400 20px/140% 'Inter', system-ui, sans-serif;
+  color: #4D5761;
+  max-width: 720px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+/* -------------------------------------------------
+   Carousel – 4.5 cards on desktop, 1.5 on mobile
+   ------------------------------------------------- */
+.niches-carousel-container {
+  position: relative;
+  max-width: 1464px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 70px;
+}
+.niches-carousel-wrapper {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+.niches-carousel-wrapper::-webkit-scrollbar { display: none; }
+
+/* Card */
+.niche-card {
+  flex: 0 0 268px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  border: 1px solid #E5E7EB;
+  transition: transform .3s ease;
+  scroll-snap-align: start;
+}
+.niche-card:hover { transform: translateY(-8px); }
+
+.niche-image-wrapper {
+  position: relative;
+  width: 260px;
+  height: 230px;
+  margin: 4px 4px 0;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.niche-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.niche-card-content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  border: 1px solid #E5E7EB;
+  border-top: none;
+  height: 62px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.niche-title {
+  font: 600 18px/1 'Inter', system-ui, sans-serif;
+  color: #101928;
+  margin: 0;
+}
+.niche-description {
+  font: 400 14px/1 'Inter', system-ui, sans-serif;
+  color: #4D5761;
+  margin: 0;
+}
+
+/* Arrows */
+.niches-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  border: 1px solid #1F1F1F1F;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all .3s ease;
+}
+.niches-nav-arrow.left  { left: 0; }
+.niches-nav-arrow.right { right: 0; }
+.niches-nav-arrow svg {
+  width: 24px;
+  height: 34px;
+  fill: none;
+  stroke: #6f6868;
+  stroke-width: 2;
+}
+
+/* -------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   ------------------------------------------------- */
+
+/* Large desktops – keep 4.5 cards */
+@media (max-width: 1440px) {
+  .niches-carousel-container { padding: 0 60px; }
+}
+
+/* Tablets – 3.5 cards */
+@media (max-width: 1024px) {
+  .niches-label   { margin-top: 100px; font-size: 15px; }
+  .niches-heading { font-size: 32px; }
+  .niches-floating-image {  width: 99.879px;
+  height: 85.838px;
+  bottom: 32.13px;
+  left: 77%;
+  transform: translateX(-50%) rotate(15.29deg); }
+  .niches-carousel-container { padding: 0 50px; }
+  .niche-card { flex: 0 0 240px; }
+  .niche-image-wrapper { width: 232px; height: 210px; }
+}
+
+/* Small tablets / large phones – 2.5 cards */
+@media (max-width: 768px) {
+  .niches-label   { margin-top: 80px; font-size: 14px; }
+  .niches-heading { font-size: 28px; }
+  .niches-floating-image {
+ width: 99.879px;
+  height: 85.838px;
+  bottom: 32.13px;
+  left: 77%;
+    transform: translateX(-50%) rotate(15.29deg);
+    transform: translateX(-50%) rotate(-20deg);
+  }
+  .niches-subtext { font-size: 18px; padding: 0 20px; }
+  .niches-carousel-container { padding: 0 50px; }
+  .niches-nav-arrow { width: 48px; height: 48px; }
+  .niches-nav-arrow svg { width: 20px; height: 20px; }
+}
+
+/* Mobile – 1.5 cards */
+@media (max-width: 480px) {
+  .niches-section { padding: 100px 15px 80px; }
+  .niches-label   { margin-top: 60px; }
+  .niches-heading { font-size: 24px; }
+  .niches-floating-image {
+     width: 69.879px;
+  height: 75.838px;
+  bottom: 32.13px;
+  left: 90%;;
+    transform: translateX(-50%) rotate(15.29deg);
+  }
+  .niches-subtext { font-size: 16px; }
+
+  /* 1.5 cards = 1 full + half of the next */
+  .niches-carousel-container { padding: 0 40px; }
+  .niche-card { flex: 0 0 calc((100vw - 120px - 32px) / 1.5); }
+  .niche-image-wrapper { width: calc(100% - 8px); height: auto; aspect-ratio: 260/230; }
+  .niche-card-content { height: auto; padding: 16px; }
+}

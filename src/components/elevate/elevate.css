@@ -1,0 +1,140 @@
+/* -------------------------------------------------
+   Global resets & font import
+   ------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.elevate-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;               /* space between image & text */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  font-family: 'Inter', sans-serif;
+    max-width: 1328px;
+}
+
+/* -------------------------------------------------
+   LEFT SIDE – IMAGE
+   ------------------------------------------------- */
+.elevate-image {
+  flex: 0 0 655px;
+}
+
+.elevate-image img {
+  width: 655px;
+  height: 410px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* -------------------------------------------------
+   RIGHT SIDE – TEXT & LIST
+   ------------------------------------------------- */
+.elevate-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Title */
+.elevate-title {
+  font-weight: 600;               /* Semi Bold */
+  font-size: 36px;
+  line-height: 140%;
+  letter-spacing: 0;
+  margin-bottom: 16px;
+}
+.allnovas {
+  color: inherit;                 /* keep same color, just a hook if you want to style later */
+}
+
+/* Subtitle */
+.elevate-subtitle {
+  font-weight: 400;               /* Regular */
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: #4D5761;
+  margin-bottom: 40px;
+}
+
+/* -------------------------------------------------
+   FEATURE LIST
+   ------------------------------------------------- */
+.elevate-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Badge (circle with gradient) */
+.feature-badge {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  padding: 5px 10px;               /* top/right/bottom/left */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(135deg, #460050, #F05658);
+  border-radius: 20px;
+}
+
+/* Text block next to badge */
+.feature-text {
+  flex: 1;
+}
+.feature-heading {
+  font-weight: 600;               /* Semi Bold */
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+.feature-desc {
+  font-weight: 400;               /* Regular */
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: #4D5761;
+}
+
+/* -------------------------------------------------
+   RESPONSIVE (optional – shrink on small screens)
+   ------------------------------------------------- */
+@media (max-width: 1024px) {
+  .elevate-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+  }
+  .elevate-image {
+    flex: none;
+  }
+  .elevate-image img {
+    width: 100%;
+    max-width: 655px;
+    height: auto;
+  }
+}

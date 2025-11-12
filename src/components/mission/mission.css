@@ -1,0 +1,262 @@
+/* ==================================================
+   mission.css – FULLY RESPONSIVE (11 Nov 2025)
+   Max container: 1328px
+   Narrow cards: 318px (desktop) → shrink on mobile
+   Middle card: 460px → full-width on phones
+   Gap: 24px → 12px → 8px
+   ================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400&family=Manrope:wght@400;600&display=swap');
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; overflow-x: hidden; }
+
+/* ---------- Section ---------- */
+.mission-section {
+  width: 100%;
+  max-width: 1328px;
+  margin: 0 auto;
+  padding: 0 24px;
+  padding-top: 96px;
+}
+
+/* ---------- Header ---------- */
+.mission-header { 
+  text-align: center; 
+  margin-bottom: 80px; 
+}
+.mission-label {
+  color: #6A0DAD;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 120px;
+  margin-bottom: 24px;
+  display: block;
+}
+.mission-title-line1,
+.mission-title-line2 {
+  color: #000;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.mission-title-line2 { margin-top: 8px; }
+.mission-subtitle {
+  color: #000;
+  font-size: 20px;
+  max-width: 768px;
+  margin: 24px auto 0;
+  line-height: 1.5;
+}
+
+/* ==================================================
+   GRID LAYOUT – RESPONSIVE
+   ================================================== */
+.mission-grid {
+  display: grid;
+  gap: 24px;                       /* default large gap */
+  width: 100%;
+  max-width: 1328px;
+  margin: 0 auto;
+  justify-content: center;
+
+  /* Desktop – 3 columns */
+  grid-template-columns: 318px minmax(400px, 460px) 318px;
+}
+
+/* -------------------------------------------------
+   Tablet (≤1100px) – 2 columns, middle a bit narrower
+   ------------------------------------------------- */
+@media (max-width: 1100px) {
+  .mission-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .mission-card.left,
+  .mission-card.right,
+  .mission-card.middle {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+}
+
+/* -------------------------------------------------
+   Mobile (≤640px) – 1 column, full-width cards
+   ------------------------------------------------- */
+@media (max-width: 640px) {
+  .mission-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .mission-card {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
+/* -------------------------------------------------
+   Tiny phones (≤480px) – tighter gap, almost full-width
+   ------------------------------------------------- */
+@media (max-width: 480px) {
+  .mission-grid { gap: 8px; }
+  .mission-card { max-width: 100%; }
+}
+
+/* ---------- Card Base ---------- */
+.mission-card {
+  height: 500px;
+  border-top-right-radius: 36px;
+  border-bottom-left-radius: 36px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Gradients */
+.mission-card.left   { background: linear-gradient(180deg, #014088 0%, #011E40 100%); }
+.mission-card.middle { background: linear-gradient(180deg, #460050 0%, #630071 100%); }
+.mission-card.right  { background: linear-gradient(180deg, #026813 0%, #003B0A 100%); }
+
+/* ---------- Logo (top) ---------- */
+.card-image-box {
+  position: absolute;
+  width: 70px;
+  height: 73px;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* -------------------------------------------------
+   LEFT / RIGHT CARD – only title
+   ------------------------------------------------- */
+.mission-card.left  .card-text,
+.mission-card.right .card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 32px 40px;
+  color: #fff;
+  text-align: center;
+}
+.mission-card.left  .card-text h3,
+.mission-card.right .card-text h3 {
+  font-family: 'Mali', cursive;
+  font-size: 40px;
+  line-height: 1.45;
+}
+
+/* -------------------------------------------------
+   MIDDLE CARD – title + paragraph + CTA
+   ------------------------------------------------- */
+.mission-card.middle .card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 90px 32px 40px;
+  color: #fff;
+  text-align: center;
+}
+.mission-card.middle .card-top-content h3 {
+  font-family: 'Mali', cursive;
+  font-size: 40px;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+.mission-card.middle .card-top-content p {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.mission-card.middle .card-bottom-content {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* CTA Button */
+.get-started {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+.get-started:hover { transform: translateX(4px); }
+.get-started svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+/* ==================================================
+   RESPONSIVE TEXT & SPACING TWEAKS
+   ================================================== */
+@media (max-width: 1100px) {
+  .mission-section { padding-top: 80px; }
+  .mission-label { margin-top: 80px; }
+  .mission-title-line1,
+  .mission-title-line2 { font-size: 32px; }
+  .mission-subtitle { font-size: 18px; }
+
+  .card-image-box { width: 64px; height: 66px; }
+  .mission-card.left .card-text,
+  .mission-card.right .card-text { padding: 0 24px 32px; }
+  .mission-card.middle .card-text { padding: 80px 24px 32px; }
+  .mission-card.middle .card-top-content h3 { font-size: 34px; }
+}
+
+@media (max-width: 640px) {
+  .mission-section { padding: 0 16px; padding-top: 64px; }
+  .mission-label { margin-top: 64px; margin-bottom: 16px; }
+  .mission-title-line1,
+  .mission-title-line2 { font-size: 28px; }
+  .mission-subtitle { font-size: 16px; }
+
+  .card-image-box { width: 56px; height: 58px; top: 6px; }
+  .mission-card { height: 420px; }
+  .mission-card.left .card-text,
+  .mission-card.right .card-text { padding: 0 20px 28px; }
+  .mission-card.middle .card-text { padding: 70px 20px 28px; }
+  .mission-card.middle .card-top-content h3 { font-size: 30px; }
+  .mission-card.middle .card-top-content p { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .mission-section { padding: 0 12px; padding-top: 56px; }
+  .mission-label { margin-top: 48px; font-size: 14px; }
+  .mission-title-line1,
+  .mission-title-line2 { font-size: 24px; }
+  .mission-subtitle { font-size: 15px; }
+
+  .card-image-box { width: 50px; height: 52px; top: 8px; }
+  .mission-card { height: 380px; }
+  .mission-card.left .card-text,
+  .mission-card.right .card-text { padding: 0 16px 24px; }
+  .mission-card.middle .card-text { padding: 60px 16px 24px; }
+  .mission-card.middle .card-top-content h3 { font-size: 28px; }
+  .mission-card.middle .card-top-content p { font-size: 14px; }
+  .get-started { font-size: 15px; }
+  .get-started svg { width: 18px; height: 18px; }
+}

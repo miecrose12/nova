@@ -1,0 +1,207 @@
+/* -------------------------------------------------
+   GLOBAL SETTINGS
+   ------------------------------------------------- */
+.footer-container {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #4d5761;
+  padding: 64px 16px 48px;          /* smaller side padding on tiny screens */
+}
+
+/* -------------------------------------------------
+   TOP SECTION
+   ------------------------------------------------- */
+.footer-top {
+  max-width: 1152px;
+  margin: 0 auto 48px;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+}
+
+/* Tablet & up */
+@media (min-width: 640px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+/* Large screens – keep two columns */
+@media (min-width: 1024px) {
+  .footer-top {
+    gap: 64px;
+  }
+}
+
+/* Text side */
+.footer-title {
+  font-weight: 700;
+  font-size: 22px;               /* a bit smaller on mobile */
+  line-height: 1.4;
+  color: #111618;
+  margin-bottom: 12px;
+}
+@media (min-width: 640px) {
+  .footer-title { font-size: 24px; }
+}
+
+.footer-subtitle {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Subscribe form */
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .subscribe-form {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.email-input {
+  flex: 1;
+  min-width: 0;                  /* allow shrinking */
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d2d6db;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #4d5761;
+}
+.email-input::placeholder { color: #9da3ae; }
+.email-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f05658;   /* fixed “ring” → box-shadow */
+}
+
+.subscribe-btn {
+  background-color: #f05658;
+  color: #fff;
+  height: 48px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+.subscribe-btn:hover { background-color: #e03a3c; }
+
+/* -------------------------------------------------
+   COLUMNS SECTION
+   ------------------------------------------------- */
+.footer-columns {
+  max-width: 1152px;
+  margin: 0 auto 48px;
+  display: grid;
+  gap: 32px 24px;
+  grid-template-columns: 1fr;
+}
+
+/* 2-column on small tablets */
+@media (min-width: 640px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 4-column on medium+ screens */
+@media (min-width: 1024px) {
+  .footer-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Column heading */
+.column h3 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #111618;
+  margin-bottom: 20px;
+}
+
+/* List */
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.column ul li {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #4d5761;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.column ul li:hover { color: #f05658; }
+
+/* -------------------------------------------------
+   BOTTOM SECTION
+   ------------------------------------------------- */
+.footer-bottom {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding-top: 32px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Tablet+ → row layout */
+@media (min-width: 640px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+.social-link img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.social-link:hover img { opacity: 1; }
+
+/* Copyright */
+.copyright {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #98a2b3;
+}
+
+/* -------------------------------------------------
+   VERY SMALL SCREENS (≤ 360px)
+   ------------------------------------------------- */
+@media (max-width: 360px) {
+  .footer-title { font-size: 20px; }
+  .email-input,
+  .subscribe-btn { height: 44px; font-size: 15px; }
+  .column ul { gap: 12px; }
+  .column ul li { font-size: 14px; }
+}

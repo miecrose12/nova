@@ -1,0 +1,77 @@
+/* how.css */
+
+.how-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.how-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0 0 16px 0;
+  color: #000;
+}
+
+.how-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  color: #4D5761;
+  margin: 0 0 40px 0;
+  max-width: 900px;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 1328px;
+  margin: 0 auto;
+}
+
+.youtube-video {
+  width: 1328px;
+  height: 582px;
+  border-radius: 8px;
+  border: none;
+  opacity: 1;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .youtube-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1328 / 582;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-title {
+    font-size: 28px;
+  }
+
+  .how-subtitle {
+    font-size: 18px;
+  }
+
+  .video-wrapper {
+    padding: 0 10px;
+  }
+}

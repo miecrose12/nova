@@ -1,0 +1,181 @@
+/* -------------------------------------------------
+   BASE STYLES (desktop first)
+------------------------------------------------- */
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  max-width: 1328px;
+  margin: 0 auto;
+}
+
+/* LEFT – logo + hamburger (hidden on large screens) */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  flex: 0;
+}
+
+.hamburger {
+  display: none;               /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 16px;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #0F0F0F;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+.navbar-logo {
+  height: 36px;
+  width: auto;
+}
+
+/* MIDDLE – menu */
+.navbar-middle {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+  margin-left: 113.5px;
+  margin-right: 112.5px;
+}
+.navbar-middle a {
+  color: #0F0F0F;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.navbar-middle a:hover { text-decoration: underline; }
+
+/* RIGHT */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+.navbar-signin {
+  color: #F05658;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.navbar-signin:hover { text-decoration: underline; }
+
+.navbar-join {
+  box-sizing: border-box;
+  width: 75px;
+  height: 36px;
+  padding: 0 21px;
+  background-color: #F05658;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.navbar-join:hover {
+  background-color: #d94547;
+  transition: background-color 0.2s ease;
+}
+
+/* -------------------------------------------------
+   RESPONSIVE – Tablet / small desktop
+------------------------------------------------- */
+@media (max-width: 1185px) {
+  .navbar { padding: 16px 20px; }
+  .navbar-middle {
+    gap: 24px;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+}
+
+/* -------------------------------------------------
+   MOBILE (≤ 768px)
+------------------------------------------------- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 16px;
+    justify-content: space-between;
+  }
+
+  /* ---- Hamburger visible ---- */
+  .hamburger { display: flex; }
+
+  /* ---- Logo centered ---- */
+  .navbar-left {
+    flex: 1;
+    justify-content: center;
+    position: relative;
+  }
+  .navbar-left .navbar-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ---- Menu hidden, becomes drawer ---- */
+  .navbar-middle {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    flex-direction: column;
+    background: #F056581A;   /* 10 % opacity red */
+    padding: 80px 24px 24px;
+    margin: 0;
+    gap: 32px;
+    transition: left 0.3s ease;
+    z-index: 20;
+  }
+  .navbar-middle.open {
+    left: 0;
+  }
+  .navbar-middle a {
+    font-size: 18px;
+    color: #0F0F0F;
+  }
+
+  /* ---- Right side – only Join button ---- */
+  .navbar-right {
+    gap: 0;
+  }
+  .desktop-only { display: none; }   /* hide Sign-In */
+
+  /* ---- Overlay ---- */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+    z-index: 10;
+  }
+}
+
+/* -------------------------------------------------
+   Optional: extra small phones
+------------------------------------------------- */
+@media (max-width: 480px) {
+  .navbar-join { width: 68px; font-size: 15px; }
+}
