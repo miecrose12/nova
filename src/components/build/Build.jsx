@@ -1,5 +1,5 @@
 import React from 'react';
-import './Build.css';
+import './build.css';
 import logo1 from '../../../src/assets/Frame 1618870707.svg';
 import logo2 from '../../../src/assets/Frame 1618870709.svg';
 import logo3 from '../../../src/assets/Frame2.svg';

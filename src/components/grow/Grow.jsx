@@ -1,5 +1,5 @@
 import React from 'react';
-import './Grow.css';
+import './grow.css';
 import logo1 from '../../../src/assets/Rectangle 3469559.svg';
 
 const Grow = () => {

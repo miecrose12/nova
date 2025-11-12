@@ -1,5 +1,5 @@
 import React from 'react';
-import './Tribe.css';
+import './tribe.css';
 import logo from '../../../src/assets/Frame 1618870705.svg';
 import logo1 from '../../../src/assets/Ellipse 178.svg';
 import logo2 from '../../../src/assets/Ellipse 179.svg';
