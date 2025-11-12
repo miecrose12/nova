@@ -2,7 +2,7 @@ import React from 'react';
 import './build.css';
 import logo1 from '../../../src/assets/Frame 1618870707.svg';
 import logo2 from '../../../src/assets/Frame 1618870709.svg';
-import logo3 from '../../../src/assets/Frame2.svg';
+import logo3 from '../../../src/assets/frame2.svg';
 import logo4 from '../../../src/assets/Frame 1618870709 (1).svg';
 import logo5 from '../../../src/assets/Frame 1618870709 (2).svg';
 
