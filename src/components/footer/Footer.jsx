@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.css';
-import logo from '../../../src/assets/vector  (6).svg';
+import logo  from '../../../src/assets/vector (6).svg';
 import logo1 from '../../../src/assets/vector (7).svg';
 import logo2 from '../../../src/assets/vector (8).svg';
 import logo3 from '../../../src/assets/vector (9).svg';
