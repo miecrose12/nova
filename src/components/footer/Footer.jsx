@@ -1,10 +1,10 @@
 import React from 'react';
 import './footer.css';
-import logo  from '../../../src/assets/vector (6).svg';
-import logo1 from '../../../src/assets/vector (7).svg';
-import logo2 from '../../../src/assets/vector (8).svg';
-import logo3 from '../../../src/assets/vector (9).svg';
-import logo4 from '../../../src/assets/vector (10).svg';
+import logo  from '../../../src/assets/Vector (6).svg';
+import logo1 from '../../../src/assets/Vector (7).svg';
+import logo2 from '../../../src/assets/Vector (8).svg';
+import logo3 from '../../../src/assets/Vector (9).svg';
+import logo4 from '../../../src/assets/Vector (10).svg';
 
 const Footer = () => {
   return (
