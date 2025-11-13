@@ -1,20 +1,20 @@
 /* ========================================
-   Tribe.css – FINAL: LEFT-ALIGNED LAYOUT
-   • Button, circles, icons, text → all flush-left
-   • Circles align with button's left edge
-   • Icon above text, right of circles
-   • Vertical divider between blocks
+   Tribe.css – UPDATED: "Our Community" BELOW FIRST LINE
+   • First line: "Unlock Your Full Potential Using" + placeholder image inline
+   • Second line: "Our Community" below
+   • Placeholder remains beside "Using"
+   • All other elements remain left-aligned
    • Fully responsive
    ======================================== */
-
 .tribe-container {
   display: flex;
-  align-items: flex-start;        /* Align top */
+  align-items: flex-start; /* Align top */
   justify-content: space-between;
   padding: 80px 100px;
   gap: 60px;
   font-family: 'Inter', sans-serif;
   background-color: #fff;
+  /* Removed: position: relative (no longer needed for absolute) */
 }
 
 /* ────── LEFT SECTION ────── */
@@ -25,7 +25,6 @@
   flex-direction: column;
   gap: 24px;
 }
-
 .tribe-label {
   font-weight: 600;
   font-size: 16px;
@@ -33,15 +32,26 @@
   color: #6A0DAD;
   margin: 0;
 }
-
 .tribe-title {
   font-weight: 600;
-  font-size: 36px;
+  font-size: 33px;
   line-height: 140%;
   color: #0F0F0F;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  gap: 4px; /* Small gap between lines */
+  align-self: flex-start; /* Keeps left-aligned */
 }
-
+.title-first-line {
+  display: flex;
+  align-items: baseline; /* Aligns text and image baselines */
+  gap: 8px; /* Small gap between text and image */
+}
+.title-text-part {
+  /* No additional styles needed; inherits from .tribe-title */
+}
 .tribe-description {
   font-weight: 400;
   font-size: 20px;
@@ -49,7 +59,6 @@
   color: #4D5761;
   margin: 0;
 }
-
 .join-btn {
   width: 167px;
   height: 48px;
@@ -67,12 +76,22 @@
   justify-content: center;
   gap: 8px;
   transition: background-color 0.3s ease;
-  align-self: flex-start;         /* Aligns button to left */
+  align-self: flex-start; /* Aligns button to left */
 }
 .join-btn:hover {
   background-color: #d94a4c;
 }
+/* Placeholder Image Styling (now inline in first line) */
+.title-placeholder {
+  width: 97.9px;
+  height: 36.6px;
+  opacity: 1;
 
+  margin-left: -25px;
+  transform: rotate(4.42deg);
+  flex-shrink: 0; /* Prevents image from shrinking */
+  /* Removed: position absolute, top, left, z-index */
+}
 /* ========================================
    STATS SECTION – LEFT-ALIGNED
    ======================================== */
@@ -81,16 +100,14 @@
   align-items: flex-start;
   gap: 60px;
   margin-top: 32px;
-  align-self: flex-start;         /* Aligns entire stats row to left */
+  align-self: flex-start; /* Aligns entire stats row to left */
 }
-
-/* Each stat block: [Circles]  [Icon + Text] */
+/* Each stat block: [Circles] [Icon + Text] */
 .stat-item {
   display: flex;
   align-items: center;
-  gap: 20px;                      /* Space between circles & content */
+  gap: 20px; /* Space between circles & content */
 }
-
 /* Circle Group – 4 touching circles */
 .circle-group {
   position: relative;
@@ -98,7 +115,6 @@
   height: 48px;
   flex-shrink: 0;
 }
-
 .circle {
   width: 48px;
   height: 48px;
@@ -109,11 +125,10 @@
   border: 3px solid #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.circle-1 { left: 0px;   z-index: 4; }
-.circle-2 { left: 32px;  z-index: 3; }
-.circle-3 { left: 64px;  z-index: 2; }
-.circle-4 { left: 96px;  z-index: 1; }
-
+.circle-1 { left: 0px; z-index: 4; }
+.circle-2 { left: 32px; z-index: 3; }
+.circle-3 { left: 64px; z-index: 2; }
+.circle-4 { left: 96px; z-index: 1; }
 /* Icon + Text (icon above text) */
 .stat-content {
   display: flex;
@@ -122,7 +137,6 @@
   gap: 8px;
   min-width: 105px;
 }
-
 .active-users-icon {
   width: 105px;
   height: 24px;
@@ -131,7 +145,6 @@
   width: 66px;
   height: 24px;
 }
-
 .stat-text {
   font-weight: 400;
   font-size: 18px;
@@ -140,7 +153,6 @@
   margin: 0;
   text-align: center;
 }
-
 /* VERTICAL DIVIDER LINE */
 .stat-divider {
   width: 1px;
@@ -149,7 +161,6 @@
   margin: 0 20px;
   align-self: center;
 }
-
 /* ────── RIGHT SECTION ────── */
 .tribe-right {
   flex: 1;
@@ -163,7 +174,6 @@
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-
 /* ========================================
    RESPONSIVE
    ======================================== */
@@ -172,25 +182,31 @@
     padding: 60px 60px;
     gap: 40px;
   }
-  .tribe-title { font-size: 32px; }
+  .tribe-title { 
+    font-size: 32px; 
+    gap: 3px;
+  }
+  .title-first-line {
+    gap: 6px;
+  }
   .tribe-description { font-size: 18px; }
-
   .stats-container { gap: 50px; }
   .stat-item { gap: 16px; }
   .stat-divider { height: 70px; }
-
   .circle-group { width: 112px; }
   .circle { width: 40px; height: 40px; }
   .circle-1 { left: 0; }
   .circle-2 { left: 28px; }
   .circle-3 { left: 56px; }
   .circle-4 { left: 84px; }
-
   .active-users-icon { width: 95px; height: 22px; }
-  .experts-icon      { width: 60px; height: 22px; }
+  .experts-icon { width: 60px; height: 22px; }
   .stat-content { gap: 6px; }
+  .title-placeholder {
+    width: 88px;
+    height: 33px;
+  }
 }
-
 @media (max-width: 768px) {
   .tribe-container {
     flex-direction: column;
@@ -201,7 +217,6 @@
   .join-btn { align-self: center; }
   .tribe-right { justify-content: center; margin-top: 40px; }
   .tribe-hero-image { width: 100%; max-width: 480px; }
-
   .stats-container {
     flex-direction: column;
     align-items: center;
@@ -217,26 +232,45 @@
     height: 1px;
     margin: 0;
   }
-
   .circle-group { width: 128px; }
   .circle { width: 48px; height: 48px; }
   .circle-1 { left: 0; }
   .circle-2 { left: 32px; }
   .circle-3 { left: 64px; }
   .circle-4 { left: 96px; }
+  .tribe-title {
+    gap: 2px;
+    align-self: center;
+  }
+  .title-first-line {
+    justify-content: center;
+    gap: 4px;
+  }
+  .title-placeholder {
+    width: 80px;
+    height: 30px;
+    transform: rotate(-17.42deg); /* Adjusted rotation for mobile as before */
+  }
 }
-
 @media (max-width: 480px) {
-  .tribe-title { font-size: 28px; }
+  .tribe-title { 
+    font-size: 28px; 
+    gap: 2px;
+  }
+  .title-first-line {
+    gap: 4px;
+  }
   .tribe-description { font-size: 16px; }
   .join-btn { width: 100%; max-width: 200px; }
-
   .circle-group { transform: scale(0.85); width: 108px; }
   .active-users-icon { width: 90px; height: 20px; }
-  .experts-icon      { width: 56px; height: 20px; }
+  .experts-icon { width: 56px; height: 20px; }
   .stat-text { font-size: 16px; }
-
   .stats-container { gap: 28px; }
   .stat-content { gap: 4px; }
   .stat-divider { width: 60px; height: 1px; }
+  .title-placeholder {
+    width: 70px;
+    height: 26px;
+  }
 }

@@ -14,7 +14,7 @@
 /* Header */
 .niches-header-wrapper {
   position: relative;
-  max-width: 800px;
+ max-width: 1250px;
   margin: 0 auto;
   text-align: center;
 }
@@ -39,7 +39,7 @@
   width: 99.879px;
   height: 85.838px;
   bottom: 32.13px;
-  left: 77%;
+  left: 67%;
   transform: translateX(-50%) rotate(15.29deg);
   pointer-events: none;
   z-index: 10;
@@ -117,6 +117,9 @@
   font: 600 18px/1 'Inter', system-ui, sans-serif;
   color: #101928;
   margin: 0;
+}
+.niche-title:hover {
+  color: #f78a8a; /* example hover color (blue) */
 }
 .niche-description {
   font: 400 14px/1 'Inter', system-ui, sans-serif;

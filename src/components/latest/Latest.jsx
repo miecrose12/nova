@@ -21,9 +21,9 @@ const Latest = () => {
         <h3 className="insights-text">Insights</h3>
 
         <div className="view-all">
-          <span className="view-all-text">View all post</span>
           {/* Real right arrow */}
           <span className="arrow-right">→</span>
+          <span className="view-all-text">View all post</span>
         </div>
       </div>
 

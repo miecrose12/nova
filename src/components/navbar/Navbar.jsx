@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../../../src/assets/AllNova black 2.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
           align-items: center;
           padding: 16px 32px;
           background-color: #ffffff;
-          max-width: 1328px;
+          max-width: 1270px;
           margin: 0 auto;
           position: relative;
         }
@@ -233,7 +234,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-left">
-          <div className="navbar-logo">AllNova</div>
+         <img src={logo} className='navbar-logo' alt="" />
         </div>
 
         <ul className={`navbar-middle ${isMenuOpen ? 'active' : ''}`}>

@@ -11,7 +11,7 @@
 .latest-container {
   font-family: 'Inter', sans-serif;
   padding: 60px 5%;
-  max-width: 1440px;
+ max-width: 1300px;
   margin: 0 auto;
   background-color: #fff;
 }
@@ -36,19 +36,51 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  position: relative; /* For absolute arrow positioning */
+  padding: 4px 12px; /* Subtle padding for hover area */
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Subtle hover effect */
+  width: fit-content; /* Allow dynamic width */
 }
 
+.view-all:hover {
+  background-color: rgba(240, 86, 88, 0.1); /* Subtle background on hover */
+}
+
+/* ARROW POSITIONING: Absolute for smooth sliding from left to right */
+.arrow-right {
+  position: absolute;
+  left: 0; /* Initial position on the left */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #F05658;
+  font-weight: bold;
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing for slide */
+  z-index: 2;
+}
+
+/* On hover: Slide arrow to the right side */
+.view-all:hover .arrow-right {
+  left: calc(100% - 20px); /* Move to right, accounting for arrow width (~18px) */
+}
+
+/* TEXT ADJUSTMENT: Add padding to accommodate arrow movement */
 .view-all-text {
   font-weight: 600;
   font-size: 16px;
   line-height: 140%;
   color: #F05658;
+  padding-left: 20px; /* Space for left arrow */
+  padding-right: 0;
+  transition: padding 0.4s ease; /* Smooth padding change */
+  margin: 0;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
-.arrow-right {
-  font-size: 18px;
-  color: #F05658;
-  font-weight: bold;
+.view-all:hover .view-all-text {
+  padding-left: 0; /* Reduce left padding */
+  padding-right: 20px; /* Add right padding for right arrow */
 }
 
 /* Title */
@@ -171,6 +203,29 @@
   .latest-subtitle {
     font-size: 18px;
   }
+
+  /* View All adjustments for tablets */
+  .view-all {
+    padding: 3px 10px;
+  }
+
+  .arrow-right {
+    left: 0;
+  }
+
+  .view-all:hover .arrow-right {
+    left: calc(100% - 18px);
+  }
+
+  .view-all-text {
+    padding-left: 18px;
+    padding-right: 0;
+  }
+
+  .view-all:hover .view-all-text {
+    padding-left: 0;
+    padding-right: 18px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -200,6 +255,31 @@
   .article-image {
     height: 220px;
   }
+
+  /* View All adjustments for mobile */
+  .view-all {
+    padding: 2px 8px;
+  }
+
+  .arrow-right {
+    font-size: 16px;
+    left: 0;
+  }
+
+  .view-all:hover .arrow-right {
+    left: calc(100% - 16px);
+  }
+
+  .view-all-text {
+    font-size: 15px;
+    padding-left: 16px;
+    padding-right: 0;
+  }
+
+  .view-all:hover .view-all-text {
+    padding-left: 0;
+    padding-right: 16px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -219,5 +299,29 @@
     width: 110px;
     height: 34px;
     font-size: 13px;
+  }
+
+  /* View All adjustments for small mobile */
+  .view-all {
+    padding: 2px 6px;
+  }
+
+  .arrow-right {
+    left: 0;
+  }
+
+  .view-all:hover .arrow-right {
+    left: calc(100% - 14px);
+  }
+
+  .view-all-text {
+    font-size: 14px;
+    padding-left: 14px;
+    padding-right: 0;
+  }
+
+  .view-all:hover .view-all-text {
+    padding-left: 0;
+    padding-right: 14px;
   }
 }

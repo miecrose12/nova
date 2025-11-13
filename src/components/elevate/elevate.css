@@ -15,7 +15,7 @@
   display: flex;
   align-items: flex-start;
   gap: 60px;               /* space between image & text */
-  max-width: 1280px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 80px 40px;
   font-family: 'Inter', sans-serif;

@@ -3,7 +3,7 @@
    ------------------------------------------------- */
 
 .grow-container {
-  max-width: 1328px;
+  max-width: 1250px;
   width: 100%;
   margin: 0 auto;
   padding: clamp(2.5rem, 5vw, 5rem) 1.5rem;

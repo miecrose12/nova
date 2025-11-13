@@ -1,6 +1,6 @@
-/* Build.css – EXACT LAPTOP DESIGN PRESERVED + FULLY RESPONSIVE + LARGE IMAGES ON MOBILE */
+/* Build.css – EXACT LAPTOP DESIGN PRESERVED + FULLY RESPONSIVE + LARGE IMAGES ON MOBILE + FIXED PLACEHOLDER IMAGE POSITIONING + ARROW SLIDE HOVER ANIMATION */
 
-/* =============== YOUR ORIGINAL LAPTOP STYLES (100% UNCHANGED) =============== */
+/* =============== YOUR ORIGINAL LAPTOP STYLES (100% UNCHANGED EXCEPT PLACEHOLDER FIX AND CTA HOVER ENHANCEMENTS) =============== */
 
 .build-container {
   position: relative;
@@ -35,14 +35,37 @@
   margin: 0 auto;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 1rem;
+  width: 100%;
+  min-height: 120px;
+  position: relative;
+}
+
 .title {
   font-weight: 600;
   font-size: clamp(28px, 4vw, 36px);
   line-height: 140%;
   letter-spacing: 0;
   text-align: center;
-  margin: 0 0 1rem;
+  margin: 0;
   color: #FFFFFF;
+  flex: 0 1 auto; /* make it shrink and grow naturally */
+  z-index: 1;
+}
+
+.placeholder-image {
+  width: 38px;
+  height: 100px;
+  opacity: 1;
+  flex-shrink: 0;
+  z-index: 2;
+  margin-top: 80px;
+  
 }
 
 .subtitle {
@@ -63,6 +86,7 @@
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 3.5rem;
+  max-width: 1250px;
 }
 
 /* LEFT CARD – EXACTLY YOUR ORIGINAL IMAGE PLACEMENT */
@@ -86,7 +110,6 @@
 
 .left-card-image {
   position: absolute;
-  /* YOUR ORIGINAL INSET VALUES – PRESERVED */
   top: clamp(79px, 3.8vw, 39.28px);
   left: 79px;
   width: calc(100% - clamp(60px, 8vw, 80.46px));
@@ -125,7 +148,6 @@
 
 .small-card-image {
   position: absolute;
-  /* YOUR ORIGINAL INSET VALUES – PRESERVED */
   top: clamp(78px, 3.8vw, 39.28px);
   left: 89px;
   width: calc(100% - clamp(56px, 7.6vw, 78.56px));
@@ -151,24 +173,53 @@
   gap: 12px;
   margin-top: 2rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: background 0.3s ease;
+  position: relative;
+  padding: 12px 20px; /* Better click/hover area */
+  background: rgba(255, 255, 255, 0.1); /* Subtle button background */
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: fit-content; /* To allow dynamic width */
 }
 
 .cta:hover {
-  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.15); /* Subtle background change on hover */
 }
 
+/* ARROW POSITIONING: Absolute for smooth sliding from left to right */
 .arrow {
+  position: absolute;
+  left: 12px; /* Initial position on the left */
+  top: 50%;
+  transform: translateY(-50%);
   font-size: clamp(20px, 3vw, 24px);
   font-weight: bold;
   color: white;
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing for slide */
+  z-index: 2;
 }
 
+/* On hover: Slide arrow to the right side */
+.cta:hover .arrow {
+  left: calc(100% - 32px); /* Move to right, accounting for padding and arrow width (~20px) */
+}
+
+/* TEXT ADJUSTMENT: Add padding to accommodate arrow movement */
 .cta-text {
   font-weight: 600;
   font-size: clamp(14px, 1.8vw, 16px);
   line-height: 130%;
   color: white;
+  padding-left: 32px; /* Space for left arrow */
+  padding-right: 0;
+  transition: padding 0.4s ease; /* Smooth padding change */
+  margin: 0;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.cta:hover .cta-text {
+  padding-left: 12px; /* Reduce left padding */
+  padding-right: 32px; /* Add right padding for right arrow */
 }
 
 /* =============== YOUR ORIGINAL LAPTOP MEDIA QUERIES (UNCHANGED) =============== */
@@ -185,6 +236,11 @@
 /* =============== RESPONSIVE: BELOW 1024px — LARGE CARD ON TOP, 2x2 GRID BELOW =============== */
 
 @media (max-width: 1024px) {
+  .header {
+    gap: clamp(15px, 3vw, 30px);
+    min-height: 110px;
+  }
+
   .cards-container {
     flex-direction: column;
     align-items: center;
@@ -197,7 +253,6 @@
     max-width: 520px;
   }
 
-  /* === PRESERVE IMAGE SIZE & PLACEMENT – SCALED FLUIDLY === */
   .left-card-image {
     top: clamp(60px, 10vw, 79px);
     left: clamp(60px, 10vw, 79px);
@@ -209,14 +264,58 @@
     top: clamp(55px, 9.5vw, 78px);
     left: clamp(65px, 11vw, 89px);
     width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-  height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+  }
+
+  .placeholder-image {
+    right: clamp(10%, 15vw, 20%);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* CTA adjustments for tablets */
+  .cta {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .arrow {
+    left: 10px;
+  }
+
+  .cta:hover .arrow {
+    left: calc(100% - 30px);
+  }
+
+  .cta-text {
+    padding-left: 30px;
+    padding-right: 0;
+  }
+
+  .cta:hover .cta-text {
+    padding-left: 10px;
+    padding-right: 30px;
   }
 }
 
 /* TABLET: 768px */
 @media (max-width: 768px) {
-  .title { font-size: clamp(26px, 5.5vw, 32px); }
-  .subtitle { font-size: clamp(15px, 2.4vw, 19px); margin-bottom: 2.8rem; }
+  .header {
+    gap: clamp(12px, 2.5vw, 20px);
+    flex-direction: column;
+    align-items: center;
+    min-height: 100px;
+  }
+
+  .title { 
+    font-size: clamp(26px, 5.5vw, 32px);
+    text-align: center;
+  }
+
+  .subtitle { 
+    font-size: clamp(15px, 2.4vw, 19px); 
+    margin-bottom: 2.8rem; 
+  }
 
   .left-card,
   .right-grid {
@@ -233,8 +332,15 @@
   .small-card-image {
     top: clamp(50px, 10vw, 70px);
     left: clamp(58px, 11.5vw, 80px);
-     width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-  height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    width: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+  }
+
+  .placeholder-image {
+    position: absolute;
+    right: clamp(8%, 12vw, 18%);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -242,6 +348,11 @@
 @media (max-width: 480px) {
   .build-container {
     padding: clamp(32px, 7vw, 50px) clamp(16px, 5vw, 24px);
+  }
+
+  .header {
+    gap: clamp(10px, 4vw, 15px);
+    min-height: 90px;
   }
 
   .cards-container {
@@ -254,7 +365,6 @@
     padding: 0 8px;
   }
 
-  /* LARGE CARD: IMAGE REMAINS PROMINENT */
   .left-card-image {
     top: clamp(48px, 12vw, 60px);
     left: clamp(48px, 12vw, 60px);
@@ -263,25 +373,51 @@
     border-radius: clamp(7px, 2vw, 9px);
   }
 
-  /* SMALL CARDS: IMAGES NEVER TOO SMALL */
   .small-card-image {
     top: clamp(44px, 11.5vw, 58px);
     left: clamp(52px, 13vw, 70px);
-   width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-  height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    width: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
     border-radius: clamp(6px, 1.8vw, 8px);
   }
 
   .cta {
     gap: 10px;
+    padding: 8px 14px;
   }
-  .arrow { font-size: 20px; }
-  .cta-text { font-size: 14px; }
+  
+  .arrow { 
+    font-size: 20px; 
+    left: 8px;
+  }
+  
+  .cta-text { 
+    font-size: 14px; 
+    padding-left: 28px;
+    padding-right: 0;
+  }
+
+  .cta:hover .arrow {
+    left: calc(100% - 28px);
+  }
+
+  .cta:hover .cta-text {
+    padding-left: 8px;
+    padding-right: 28px;
+  }
+
+  .placeholder-image {
+    position: relative;
+    right: 0;
+    top: clamp(8px, 1.8vw, 15px);
+    transform: none;
+    align-self: center;
+  }
 }
 
 /* ULTRA-SMALL FIX (≤360px) – NO SQUISHED IMAGES */
 @media (max-width: 360px) {
-   .left-card-image {
+  .left-card-image {
     top: clamp(48px, 12vw, 60px);
     left: clamp(48px, 12vw, 60px);
     width: calc(100% - clamp(96px, 24vw, 120px));
@@ -289,12 +425,43 @@
     border-radius: clamp(7px, 2vw, 9px);
   }
 
-  /* SMALL CARDS: IMAGES NEVER TOO SMALL */
   .small-card-image {
     top: clamp(44px, 11.5vw, 58px);
     left: clamp(52px, 13vw, 70px);
-   width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-  height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    width: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
     border-radius: clamp(6px, 1.8vw, 8px);
+  }
+
+  .header {
+    gap: 8px;
+    min-height: 85px;
+  }
+
+  .placeholder-image {
+    top: clamp(6px, 1.5vw, 12px);
+  }
+
+  .cta {
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .arrow {
+    left: 6px;
+  }
+
+  .cta-text {
+    padding-left: 26px;
+    padding-right: 0;
+  }
+
+  .cta:hover .arrow {
+    left: calc(100% - 26px);
+  }
+
+  .cta:hover .cta-text {
+    padding-left: 6px;
+    padding-right: 26px;
   }
 }

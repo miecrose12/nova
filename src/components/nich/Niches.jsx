@@ -1,14 +1,21 @@
 // src/components/nich/Niches.jsx
 import { useRef } from 'react';
 import './niches.css';
-import logo from '../../../src/assets/misc-06.svg';
+import logo from '../../assets/misc-06.svg'; // Fixed relative path from components/nich/ to assets/
+
+// Import niche images properly for bundling (adjust paths as needed based on your folder structure)
+import uiuxImg from '../../assets/Frame 2131333005.svg';
+import webDevImg from '../../assets/Frame 2131333005 (1).svg';
+import mobileAppImg from '../../assets/Frame 2131333005 (2).svg';
+import graphicsImg from '../../assets/Frame 2131333005 (3).svg';
+import videoEditImg from '../../assets/Frame 2131333005 (4).svg';
 
 const niches = [
-  { title: "UI/UX Designer",        img: "../../../src/assets/Frame 2131333005.svg" },
-  { title: "Web Development",       img: "../../../src/assets/Frame 2131333005 (1).svg" },
-  { title: "Mobile App Development",img: "../../../src/assets/Frame 2131333005 (2).svg" },
-  { title: "Graphics Design",       img: "../../../src/assets/Frame 2131333005 (3).svg" },
-  { title: "Video Editing",         img: "../../../src/assets/Frame 2131333005 (4).svg" },
+  { title: "UI/UX Designer",        img: uiuxImg },
+  { title: "Web Development",       img: webDevImg },
+  { title: "Mobile App Development",img: mobileAppImg },
+  { title: "Graphics Design",       img: graphicsImg },
+  { title: "Video Editing",         img: videoEditImg },
 ];
 
 export default function Niches() {

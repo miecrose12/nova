@@ -5,14 +5,15 @@
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   color: #4d5761;
-  padding: 64px 16px 48px;          /* smaller side padding on tiny screens */
+  padding: 64px 16px 48px;  
+          /* smaller side padding on tiny screens */
 }
 
 /* -------------------------------------------------
    TOP SECTION
    ------------------------------------------------- */
 .footer-top {
-  max-width: 1152px;
+ max-width: 1250px;
   margin: 0 auto 48px;
   display: grid;
   gap: 32px;
