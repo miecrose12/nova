@@ -233,6 +233,13 @@
   .left-card, .small-card { box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
 }
 
+/* HIDE PLACEHOLDER IMAGE BELOW 1000PX (ON SMALLER SCREENS) */
+@media (max-width: 1000px) {
+  .placeholder-image {
+    display: none;
+  }
+}
+
 /* =============== RESPONSIVE: BELOW 1024px — LARGE CARD ON TOP, 2x2 GRID BELOW =============== */
 
 @media (max-width: 1024px) {

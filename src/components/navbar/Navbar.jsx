@@ -36,6 +36,11 @@ const Navbar = () => {
           color: #0F0F0F;
         }
 
+        .navbar-logo img {
+          height: 36px;
+          width: auto;
+        }
+
         .navbar-middle {
           display: flex;
           list-style: none;
@@ -104,7 +109,7 @@ const Navbar = () => {
           z-index: 1001;
         }
 
-        /* Tablet and Mobile Styles */
+        /* Tablet Styles (adjustments for screens between 1000px and 1270px) */
         @media (max-width: 1024px) {
           .navbar {
             padding: 16px 20px;
@@ -122,9 +127,10 @@ const Navbar = () => {
           }
         }
 
-        @media (max-width: 768px) {
+        /* Mobile Styles (responsive navbar activates at max-width: 1000px) */
+        @media (max-width: 1000px) {
           .navbar {
-            background-color: #F056581A;
+            background-color: #FFC0CB1A; /* Light pink background for navbar on mobile */
             justify-content: space-between;
             padding: 16px 20px;
           }
@@ -138,6 +144,11 @@ const Navbar = () => {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 1001;
+          }
+
+          .navbar-logo img {
+            height: 32px; /* Slightly smaller logo on mobile */
           }
 
           .navbar-middle {
@@ -146,7 +157,7 @@ const Navbar = () => {
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #F056581A;
+            background-color: #FFC0CB33; /* Pink background for the popup menu (light pink with 20% opacity) */
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -156,7 +167,7 @@ const Navbar = () => {
             transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px); /* Retain blur for a frosted glass effect on pink */
           }
 
           .navbar-middle.active {
@@ -212,18 +223,33 @@ const Navbar = () => {
           .navbar-signin {
             display: none;
           }
-        }
 
-        @media (max-width: 480px) {
-          .navbar-logo {
-            height: 32px;
-            font-size: 20px;
-          }
-
+          /* Ensure the join button is visible and adjusted */
           .navbar-join {
             width: 70px;
             height: 34px;
             font-size: 14px;
+          }
+        }
+
+        /* Extra small screens (below 480px) for finer adjustments */
+        @media (max-width: 480px) {
+          .navbar {
+            padding: 12px 16px;
+          }
+
+          .navbar-logo img {
+            height: 28px;
+          }
+
+          .navbar-join {
+            width: 65px;
+            height: 32px;
+            font-size: 13px;
+          }
+
+          .navbar-middle a {
+            font-size: 20px; /* Slightly smaller text on very small screens */
           }
         }
       `}</style>
@@ -234,7 +260,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-left">
-         <img src={logo} className='navbar-logo' alt="" />
+          <img src={logo} className="navbar-logo" alt="AllNova Logo" />
         </div>
 
         <ul className={`navbar-middle ${isMenuOpen ? 'active' : ''}`}>

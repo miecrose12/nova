@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './hero.css';
-import logo from '../../../src/assets/Ellipse 5965.svg'; 
-import logo1 from '../../../src/assets/Ellipse 5966.svg'; 
-import logo2 from '../../../src/assets/Ellipse 178.svg'; 
-import logo3 from '../../../src/assets/Ellipse 179.svg'; 
-import logo4 from '../../../src/assets/Ellipse 180.svg'; 
-import logo5 from '../../../src/assets/Ellipse 181.svg'; 
+// Import images as modules for proper bundling on Vercel
+import logo from '../../assets/Ellipse 5965.svg'; 
+import logo1 from '../../assets/Ellipse 5966.svg'; 
+import logo2 from '../../assets/Ellipse 178.svg'; 
+import logo3 from '../../assets/Ellipse 179.svg'; 
+import logo4 from '../../assets/Ellipse 180.svg'; 
+import logo5 from '../../assets/Ellipse 181.svg'; 
 
 const Hero = () => {
+  const [searchTerm, setSearchTerm] = useState(''); // New state for search input
+
   const leftDecorations = [
     {
       img: logo,
@@ -91,6 +94,21 @@ const Hero = () => {
   const [rightIncomingIndex, setRightIncomingIndex] = useState(null);
   const [rightTransitioning, setRightTransitioning] = useState(false);
   const [rightDisableTransition, setRightDisableTransition] = useState(false);
+
+  // New search handlers
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      // TODO: Integrate with your app's search logic (e.g., navigate to search page via React Router)
+      // For now, logs to console and could trigger a search API or redirect
+      console.log('Searching for:', searchTerm);
+      // Example: window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+      // Or: history.push(`/search?q=${searchTerm}`); // If using React Router
+    }
+  };
 
   useEffect(() => {
     const leftInterval = setInterval(() => {
@@ -255,8 +273,23 @@ const Hero = () => {
       </div>
       
       <div className="search-bar">
-        <span className="search-placeholder">Search...</span>
-        <button className="search-button">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search..."
+          className="search-input"
+          style={{
+            border: 'none',
+            outline: 'none',
+            background: 'transparent',
+            color: 'inherit', // Matches text color from CSS
+            fontSize: 'inherit', // Matches font from CSS
+            fontFamily: 'inherit' // Matches font from CSS
+          }}
+          onKeyPress={(e) => e.key === 'Enter' && handleSearch()} // Allow Enter to trigger search
+        />
+        <button className="search-button" onClick={handleSearch}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -266,15 +299,15 @@ const Hero = () => {
       
       <div className="popular-searches">
         <span className="popular-label">Popular Search:</span>
-        <button className="popular-button">Graphic Design</button>
-        <button className="popular-button">Web Development</button>
-        <button className="popular-button">Programming</button>
-        <button className="popular-button">UI/UX Design</button>
-        <button className="popular-button">Presentation Design</button>
-        <button className="popular-button">Video Editing</button>
+        <button className="popular-button" onClick={() => { setSearchTerm('Graphic Design'); handleSearch(); }}>Graphic Design</button>
+        <button className="popular-button" onClick={() => { setSearchTerm('Web Development'); handleSearch(); }}>Web Development</button>
+        <button className="popular-button" onClick={() => { setSearchTerm('Programming'); handleSearch(); }}>Programming</button>
+        <button className="popular-button" onClick={() => { setSearchTerm('UI/UX Design'); handleSearch(); }}>UI/UX Design</button>
+        <button className="popular-button" onClick={() => { setSearchTerm('Presentation Design'); handleSearch(); }}>Presentation Design</button>
+        <button className="popular-button" onClick={() => { setSearchTerm('Video Editing'); handleSearch(); }}>Video Editing</button>
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default Hero;   
