@@ -1,26 +1,31 @@
 import React from 'react';
 import './grow.css';
-import logo1 from '../../../src/assets/Rectangle 3469559.svg';
+// Import all images as modules for proper bundling on Vercel
+import logo1 from '../../assets/Rectangle 3469559.svg';
+import teacherIcon from '../../assets/teacher.svg';
+import peopleIcon from '../../assets/people.svg';
+import frame1 from '../../assets/Frame 1618870781.svg';
+import frame2 from '../../assets/Frame 1618870782.svg';
 
 const Grow = () => {
   const resources = [
     {
-      icon: "../../../src/assets/teacher.svg",
+      icon: teacherIcon,
       title: "Tutorials by Experts:",
       desc: "Step-by-step guides crafted by industry professionals to help you master new tools."
     },
     {
-      icon: "../../../src/assets/people.svg",
+      icon: peopleIcon,
       title: "Interactive Webinars:",
       desc: "Learn directly from the pros in live sessions, complete with Q&A."
     },
     {
-      icon: "../../../src/assets/Frame 1618870781.svg",
+      icon: frame1,
       title: "eBooks and Templates:",
       desc: "Access downloadable guides and templates to speed up your projects."
     },
     {
-      icon: "../../../src/assets/Frame 1618870782.svg",
+      icon: frame2,
       title: "Tips and Trends:",
       desc: "Stay ahead with insights into cutting-edge design trends."
     }
