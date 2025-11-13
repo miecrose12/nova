@@ -213,7 +213,7 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      <div className="small-text">designed for modern collaboration</div>
+      <div className="small-text">Designed for modern collaboration</div>
       
       <div className="title-container">
         <div className="left-decoration">

@@ -6,7 +6,7 @@ const How = () => {
     <div className="how-container">
       <h1 className="how-title">How AllNova Works</h1>
       <p className="how-subtitle">
-        Your Path to Success: From Choosing the Perfect Freelancer to Seamless Deliveries at Your Virtual Doorstep!
+        Your Path to Success: From Choosing the Perfect Freelancer to Seamless <br/> Deliveries at Your Virtual Doorstep!
       </p>
       <div className="video-wrapper">
         <iframe

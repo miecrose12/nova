@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './frequent.css';
 import logo from '../../../src/assets/misc-57.svg';
+import { IoChevronDown } from 'react-icons/io5'; // <-- Import the icon
 
 const Frequent = () => {
   const [activeButton, setActiveButton] = useState(0);
@@ -47,7 +48,7 @@ const Frequent = () => {
         <h1 className="faq-title">Frequently asked questions</h1>
         <div className="image-container">
           <img
-            src={logo}// Replace with your image
+            src={logo}
             alt="Decorative circle"
             className="faq-circle-image"
           />
@@ -76,11 +77,15 @@ const Frequent = () => {
       <div className="faq-list">
         {faqs.map((faq, index) => (
           <div key={index} className="faq-item">
-            <div className="faq-question" onClick={() => toggleDropdown(index)}>
+            <div
+              className="faq-question"
+              onClick={() => toggleDropdown(index)}
+            >
               <span className="question-text">{faq.question}</span>
-              <span className={`dropdown-icon ${openDropdown === index ? 'open' : ''}`}>
-                &gt;
-              </span>
+        <IoChevronDown
+    size={17}  // ← Now visible and scalable
+    className={`dropdown-ico22n ${openDropdown === index ? 'open' : ''}`}
+  />
             </div>
 
             {openDropdown === index && (

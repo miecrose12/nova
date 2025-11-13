@@ -13,7 +13,7 @@ const cardData = [
     title: 'Accessibility',
     color1: '#014088',
     color2: '#011E40',
-    image: logo,
+    image: logo2,
     description: 'Empowering talents from all backgrounds to access opportunities easily and seamlessly.',
   },
   {
@@ -21,7 +21,7 @@ const cardData = [
     title: 'Functionality',
     color1: '#460050',
     color2: '#630071',
-    image: logo1,
+    image: logo,
     description: 'Connect, create and earn with tools that make freelancing seamless.',
   },
   {
@@ -29,7 +29,7 @@ const cardData = [
     title: 'Security',
     color1: '#026813',
     color2: '#003B0A',
-    image: logo2,
+    image: logo1,
     description: 'Safeguarding your work with secure payments, verified profiles, and transparent projects.',
   },
 ];
@@ -232,11 +232,12 @@ const Mission = () => {
         }
 
         .mission-subtitle {
-          color: #000;
+          color: #4D5761;
           font-size: 20px;
           max-width: 768px;
           margin: 24px auto 0;
           line-height: 1.5;
+          font-weight: 400;
         }
 
         /* Grid */

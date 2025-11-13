@@ -34,6 +34,7 @@ export default function Niches() {
     <section className="niches-section">
       {/* Header */}
       <div className="niches-header-wrapper">
+           <p className="niches-label">Specialized Niches</p>
         <h2 className="niches-heading">
           Your vision, Our <span className="niche-word">niche</span>
           <img
@@ -42,7 +43,7 @@ export default function Niches() {
             className="niches-floating-image"
           />
         </h2>
-        <p className="niches-label">Specialized Niches</p>
+     
       </div>
 
       <p className="niches-subtext">

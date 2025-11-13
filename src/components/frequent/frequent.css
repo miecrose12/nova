@@ -159,6 +159,7 @@
   transition: transform 0.25s ease, color 0.2s ease;
   transform: rotate(0deg);
   flex-shrink: 0;
+  font-size: 1.5rem;
 }
 
 .dropdown-icon.open {
