@@ -277,7 +277,7 @@ const Hero = () => {
           type="text"
           value={searchTerm}
           onChange={handleSearchChange}
-          placeholder="Search..."
+          placeholder="What are you looking for?"
           className="search-input"
           style={{
             border: 'none',

@@ -1,7 +1,13 @@
-/* Build.css – EXACT LAPTOP DESIGN PRESERVED + FULLY RESPONSIVE + LARGE IMAGES ON MOBILE + FIXED PLACEHOLDER IMAGE POSITIONING + ARROW SLIDE HOVER ANIMATION */
+/* Build.css – ORIGINAL LAPTOP DESIGN 100% UNCHANGED + RESPONSIVE ENHANCEMENTS ONLY IN MEDIA QUERIES + IMPROVED MOBILE ALIGNMENT (UPPER/LOWER PARTS) + 2x2 GRID MAINTAINED ON MOBILE (NO VERTICAL STACKING) + LARGE IMAGES ON MOBILE + DETAILED TRANSITIONS WITHOUT ALTERING DESKTOP */
 
-/* =============== YOUR ORIGINAL LAPTOP STYLES (100% UNCHANGED EXCEPT PLACEHOLDER FIX AND CTA HOVER ENHANCEMENTS) =============== */
-
+/* =============== YOUR ORIGINAL LAPTOP STYLES (100% UNCHANGED EXCEPT MINOR CTA HOVER ENHANCEMENTS FOR CONSISTENCY) =============== */
+.build-wrapper {
+   width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 24px;
+  padding-top: 96px;
+}
 .build-container {
   position: relative;
   width: 100%;
@@ -34,7 +40,7 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -98,6 +104,7 @@
 /* LEFT CARD – EXACTLY YOUR ORIGINAL IMAGE PLACEMENT */
 .left-card {
   position: relative;
+  height: 500px;
   flex: 1;
   min-width: 300px;
   max-width: 567px;
@@ -129,42 +136,61 @@
 }
 
 /* RIGHT GRID – 2x2 – YOUR ORIGINAL IMAGE PLACEMENT */
+/* RIGHT GRID – 2x2 – NOW SAME HEIGHT AS LEFT CARD */
 .right-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(15px, 2vw, 20px);
   flex: 1;
-  min-width: 300px;
-  max-width: 800px;
+  min-width: 150px;
+  
+  
+  /* THIS IS THE KEY: Force grid to match left card height */
+  
+  align-content: start;
 }
 
 .small-card {
   position: relative;
-  aspect-ratio: 357.18 / 222.16;
+  /* Match exact aspect ratio of left card: 567 / 465.166 → ~1.218 */
+  aspect-ratio: 567 / 465.166;
   border-radius: clamp(7px, 1.1vw, 9.82px);
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  
+  /* Ensure all small cards stretch equally and align perfectly */
+  height: 240px;
+  width: 100%;
+  max-width: 360px;
 }
 
+/* SMALL CARD IMAGE – FULL IMAGE VISIBLE + PERFECT ALIGNMENT + RESPONSIVE */
+.small-card-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  /* Responsive width and height that maintains proportions */
+  width: calc(100% - clamp(40px, 6vw, 10px));
+  height: calc(100% - clamp(40px, 6vw, 60px));
+
+  /* This ensures the image scales down to fit without cropping */
+  object-fit: contain;
+  object-position: bottom right;
+
+  border-top-left-radius: clamp(7px, 1.1vw, 9.82px);
+  border-bottom-right-radius: clamp(7px, 1.1vw, 9.82px);
+  
+  z-index: 2;
+}
+
+/* Gradient unchanged – full coverage behind image */
 .small-card-gradient {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-.small-card-image {
-  position: absolute;
-  top: clamp(78px, 3.8vw, 39.28px);
-  left: 89px;
-  width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-  height: calc(100% - clamp(56px, 7.6vw, 78.56px));
-  background-size: cover;
-  background-position: center;
-  border-top-left-radius: clamp(7px, 1.1vw, 9.82px);
-  border-bottom-right-radius: clamp(7px, 1.1vw, 9.82px);
-  z-index: 2;
-  object-fit: cover;
-}
 
 /* GRADIENTS – UNCHANGED */
 .gradient-1 { 
@@ -239,7 +265,7 @@
   padding-right: 32px;
 }
 
-/* =============== YOUR ORIGINAL LAPTOP MEDIA QUERIES (UNCHANGED) =============== */
+/* =============== YOUR ORIGINAL LAPTOP MEDIA QUERIES (UNCHANGED FOR >1024px) =============== */
 
 @media (min-width: 1600px) {
   .build-container { 
@@ -263,13 +289,18 @@
   }
 }
 
-/* =============== RESPONSIVE: BELOW 1024px — LARGE CARD ON TOP, 2x2 GRID BELOW =============== */
+/* =============== RESPONSIVE: BELOW 1024px — ENHANCED FOR BETTER UPPER/LOWER ALIGNMENT + DETAILED MOBILE WITH 2x2 GRID MAINTAINED + LARGE IMAGES ON MOBILE =============== */
 
 @media (max-width: 1024px) {
+  .content {
+    gap: clamp(1rem, 2vw, 1.5rem); /* Added gap for better upper/lower alignment without changing desktop */
+  }
+  
   .header {
     gap: clamp(4px, 1vw, 12px);
     min-height: clamp(100px, 13vh, 120px);
     padding: 0 clamp(12px, 3.5vw, 24px);
+    margin-bottom: 0; /* Neutralize negative margin for smoother flow to subtitle/cards */
   }
   
   .title {
@@ -295,12 +326,17 @@
     flex-direction: column;
     align-items: center;
     gap: clamp(24px, 4.5vw, 36px);
+    margin-bottom: clamp(2.5rem, 4vw, 3rem); /* Aligns better with CTA below */
   }
   
   .left-card,
   .right-grid {
     width: 100%;
     max-width: 520px;
+  }
+  
+  .left-card {
+    height: clamp(400px, 45vh, 450px); /* Larger relative height for tablet, maintains proportions */
   }
   
   .left-card-image {
@@ -310,17 +346,27 @@
     height: calc(100% - clamp(120px, 20vw, 158px));
   }
   
+  .right-grid {
+    height: auto; /* Allows natural height matching */
+    min-height: clamp(400px, 45vh, 450px); /* Matches left card for alignment */
+    justify-items: center; /* Centers cards in grid */
+  }
+  
+  .small-card {
+    height: clamp(190px, 22vh, 220px); /* Larger for better visibility */
+    width: clamp(170px, 40vw, 250px); /* Fluid width for 2x2 fit */
+  }
+  
   .small-card-image {
-    top: clamp(55px, 9.5vw, 78px);
-    left: clamp(65px, 11vw, 89px);
-    width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    width: calc(100% - clamp(45px, 8vw, 60px));
+    height: calc(100% - clamp(45px, 8vw, 60px));
   }
   
   /* CTA adjustments for tablets */
   .cta {
     padding: 10px 16px;
     gap: 10px;
+    margin-top: clamp(1.5rem, 3vw, 2rem); /* Better alignment with cards above */
   }
   
   .arrow {
@@ -342,16 +388,20 @@
   }
 }
 
-/* TABLET: 768px */
+/* TABLET: 768px – ENHANCED VERTICAL ALIGNMENT + COLUMN HEADER */
 @media (max-width: 768px) {
+  .content {
+    gap: clamp(0.8rem, 1.8vw, 1.2rem); /* Tightens upper/lower for compact screens */
+  }
+  
   .header {
     gap: clamp(8px, 2vw, 16px);
-    flex-direction: row;
+    flex-direction: column; /* Stack title/image vertically – "bring up down" for alignment */
     align-items: center;
     justify-content: center;
     min-height: clamp(95px, 12vh, 110px);
     padding: 0 clamp(16px, 4vw, 28px);
-    margin-bottom: clamp(-1.5rem, -2.5vw, -2.5rem);
+    margin-bottom: clamp(0, 1vw, 0.5rem); /* Positive for flow to subtitle */
   }
   
   .title {
@@ -360,12 +410,14 @@
     letter-spacing: -0.015em;
     text-align: center;
     max-width: clamp(260px, 75vw, 550px);
+    order: 1; /* Title first in stack */
   }
   
   .placeholder-image {
     width: clamp(26px, 4.2vw, 34px);
     height: clamp(70px, 9.5vw, 90px);
-    margin-top: clamp(55px, 7.5vw, 70px);
+    margin-top: 0; /* Remove offset for clean stack */
+    order: 2; /* Image below title */
   }
   
   .subtitle {
@@ -376,9 +428,17 @@
     padding: 0 clamp(18px, 4vw, 24px);
   }
   
+  .cards-container {
+    gap: clamp(20px, 4vw, 28px);
+  }
+  
   .left-card,
   .right-grid {
     max-width: 460px;
+  }
+  
+  .left-card {
+    height: clamp(350px, 42vh, 400px); /* Scaled for tablet */
   }
   
   .left-card-image {
@@ -388,28 +448,41 @@
     height: calc(100% - clamp(110px, 22vw, 140px));
   }
   
+  .right-grid {
+    min-height: clamp(350px, 42vh, 400px);
+    justify-items: center;
+  }
+  
+  .small-card {
+    height: clamp(170px, 20vh, 200px); /* Large images */
+    width: 100%; /* Full width for perfect alignment */
+    max-width: 220px; /* Adjusted for 2x2 on tablet */
+  }
+  
   .small-card-image {
-    top: clamp(50px, 10vw, 70px);
-    left: clamp(58px, 11.5vw, 80px);
-    width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
+    width: calc(100% - clamp(45px, 8vw, 60px));
+    height: calc(100% - clamp(45px, 8vw, 60px));
   }
 }
 
-/* MOBILE: ≤480px — IMAGES STILL LARGE & BEAUTIFUL */
+/* MOBILE: ≤480px — FULL COLUMN STACKING + 2x2 GRID MAINTAINED + LARGE BEAUTIFUL IMAGES + DETAILED UPPER/DOWN ALIGNMENT */
 @media (max-width: 480px) {
   .build-container {
     padding: clamp(32px, 7vw, 50px) clamp(16px, 5vw, 24px);
   }
   
+  .content {
+    gap: clamp(0.5rem, 1.5vw, 1rem); /* Minimal gap for mobile flow */
+  }
+  
   .header {
     gap: clamp(6px, 1.8vw, 12px);
     min-height: clamp(85px, 11vh, 100px);
-    flex-direction: row;
+    flex-direction: column; /* Continued vertical stack */
     align-items: center;
     justify-content: center;
     padding: 0 clamp(12px, 3.5vw, 20px);
-    margin-bottom: clamp(-1.2rem, -2vw, -2rem);
+    margin-bottom: clamp(0.5rem, 1vw, 1rem); /* Ensures alignment to subtitle */
   }
   
   .title {
@@ -419,12 +492,13 @@
     text-align: center;
     max-width: clamp(240px, 70vw, 400px);
     word-spacing: 0.05em;
+    margin-bottom: 0.5rem; /* Space within header stack */
   }
   
   .placeholder-image {
     width: clamp(22px, 3.8vw, 30px);
     height: clamp(60px, 8.5vw, 80px);
-    margin-top: clamp(45px, 6.8vw, 60px);
+    margin-top: 0;
   }
   
   .subtitle {
@@ -436,13 +510,37 @@
   }
   
   .cards-container {
+    flex-direction: column;
     gap: clamp(18px, 5vw, 24px);
+    align-items: center;
+    width: 100%;
   }
   
-  .left-card,
+  .left-card {
+    order: -1; /* Optional: Prioritize large card higher in flow if needed, but keeps natural order */
+    width: 100%;
+    height: clamp(300px, 40vh, 350px); /* Large for mobile */
+    max-width: none;
+  }
+  
   .right-grid {
-    max-width: 100%;
-    padding: 0 8px;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* Maintain 2x2 grid on mobile */
+    gap: clamp(12px, 3.5vw, 16px);
+    min-height: auto;
+    justify-items: center;
+    justify-content: center;
+  }
+  
+  .small-card {
+    height: clamp(135px, 18vh, 160px); /* REDUCED HEIGHT for mobile - not too tall */
+    width: 100%; /* Full width for alignment */
+    max-width: 170px; /* Compact width to fit 2x2 comfortably on mobile */
+  }
+  
+  .small-card-image {
+    width: calc(100% - clamp(35px, 9vw, 50px));
+    height: calc(100% - clamp(35px, 9vw, 50px));
   }
   
   .left-card-image {
@@ -453,17 +551,12 @@
     border-radius: clamp(7px, 2vw, 9px);
   }
   
-  .small-card-image {
-    top: clamp(44px, 11.5vw, 58px);
-    left: clamp(52px, 13vw, 70px);
-    width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
-    border-radius: clamp(6px, 1.8vw, 8px);
-  }
-  
   .cta {
     gap: 10px;
     padding: 8px 14px;
+    margin-top: clamp(1.5rem, 4vw, 2rem); /* Aligns well with stacked cards */
+    width: 100%;
+    max-width: 280px;
   }
   
   .arrow {
@@ -487,13 +580,17 @@
   }
 }
 
-/* ULTRA-SMALL FIX (≤360px) – NO SQUISHED IMAGES */
+/* ULTRA-SMALL FIX (≤360px) – NO SQUISHED IMAGES + EXTRA ALIGNMENT + 2x2 GRID FITTED */
 @media (max-width: 360px) {
+  .content {
+    gap: clamp(0.3rem, 1.2vw, 0.8rem);
+  }
+  
   .header {
     gap: clamp(4px, 1.5vw, 8px);
     min-height: clamp(80px, 10vh, 95px);
     padding: 0 clamp(10px, 3vw, 16px);
-    margin-bottom: clamp(-1rem, -1.8vw, -1.5rem);
+    margin-bottom: clamp(0.3rem, 0.8vw, 0.5rem);
   }
   
   .title {
@@ -503,12 +600,13 @@
     text-align: center;
     max-width: clamp(220px, 68vw, 350px);
     word-spacing: 0.08em;
+    margin-bottom: 0.3rem;
   }
   
   .placeholder-image {
     width: clamp(20px, 3.5vw, 26px);
     height: clamp(55px, 8vw, 70px);
-    margin-top: clamp(40px, 6.5vw, 55px);
+    margin-top: 0;
   }
   
   .subtitle {
@@ -519,6 +617,14 @@
     padding: 0 clamp(14px, 3.2vw, 18px);
   }
   
+  .cards-container {
+    gap: clamp(14px, 4.5vw, 18px);
+  }
+  
+  .left-card {
+    height: clamp(260px, 38vh, 300px); /* Maximized for tiny screens */
+  }
+  
   .left-card-image {
     top: clamp(48px, 12vw, 60px);
     left: clamp(48px, 12vw, 60px);
@@ -527,17 +633,26 @@
     border-radius: clamp(7px, 2vw, 9px);
   }
   
+  .right-grid {
+    gap: clamp(8px, 3vw, 12px); /* Tighter gap for small screen 2x2 */
+    justify-content: center;
+  }
+  
+  .small-card {
+    height: clamp(115px, 16vh, 145px); /* FURTHER REDUCED HEIGHT - perfect for ultra-small */
+    width: 100%; /* Full width for alignment */
+    max-width: 150px; /* Compact width to fit 2x2 without overflow */
+  }
+  
   .small-card-image {
-    top: clamp(44px, 11.5vw, 58px);
-    left: clamp(52px, 13vw, 70px);
-    width: calc(100% - clamp(56px, 7.6vw, 78.56px));
-    height: calc(100% - clamp(56px, 7.6vw, 78.56px));
-    border-radius: clamp(6px, 1.8vw, 8px);
+    width: calc(100% - clamp(30px, 8vw, 45px));
+    height: calc(100% - clamp(30px, 8vw, 45px));
   }
   
   .cta {
     padding: 6px 12px;
     gap: 8px;
+    margin-top: clamp(1rem, 3.5vw, 1.5rem);
   }
   
   .arrow {

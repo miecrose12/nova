@@ -22,13 +22,13 @@
   margin-top: 120px;
   font: 600 16px/140% 'Inter', system-ui, sans-serif;
   color: #6A0DAD;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .niches-heading {
   position: relative;
   font: 600 36px/140% 'Inter', system-ui, sans-serif;
   color: #101928;
-  margin: 0 auto 24px;
+  margin: 0 auto 14px;
 }
 .niche-word {
   position: relative;
@@ -36,11 +36,11 @@
 }
 .niches-floating-image {
   position: absolute;
-  width: 99.879px;
-  height: 85.838px;
+  width: 109.879px;
+  height: 95.838px;
   bottom: 32.13px;
-  left: 67%;
-  transform: translateX(-50%) rotate(15.29deg);
+  left: 65%;
+  transform: translateX(-50%) rotate(.29deg);
   pointer-events: none;
   z-index: 10;
 }
@@ -57,7 +57,7 @@
    ------------------------------------------------- */
 .niches-carousel-container {
   position: relative;
-  max-width: 1464px;
+  max-width: 1300px;
   margin: 0 auto;
   overflow: hidden;
   padding: 0 70px;

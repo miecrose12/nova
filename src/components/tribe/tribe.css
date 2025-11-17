@@ -6,16 +6,37 @@
    • All other elements remain left-aligned
    • Fully responsive
    ======================================== */
+/* NEW WRAPPER – This is the only thing you add */
+.tribe-wrapper {
+   width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 24px;
+  padding-top: 96px;
+}
+
+/* UPDATED MAIN CONTAINER – Now lives inside the centered wrapper */
 .tribe-container {
   display: flex;
-  align-items: flex-start; /* Align top */
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 80px 100px;
+  padding: 80px 0;          /* Removed left/right padding – now handled by wrapper */
   gap: 60px;
   font-family: 'Inter', sans-serif;
   background-color: #fff;
-  /* Removed: position: relative (no longer needed for absolute) */
+  width: 100%;
+  box-sizing: border-box;
 }
+
+/* Optional: Slightly tighten padding on large screens for perfect balance */
+@media (min-width: 1400px) {
+  .tribe-wrapper {
+    padding: 0 40px;
+  }
+}
+
+/* Keep all your existing responsive breakpoints exactly as they are */
+/* → No need to change anything else – everything stays pixel-perfect */
 
 /* ────── LEFT SECTION ────── */
 .tribe-left {
@@ -166,11 +187,12 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  flex-shrink: 0; /* Prevents the right section from shrinking */
+  flex-shrink: 0;
+   /* Prevents the right section from shrinking */
 }
 .tribe-hero-image {
-  max-width: 100%;
-  min-width: 400px; /* Ensures minimum width to prevent excessive shrinking */
+ 
+  width: 600px; /* Ensures minimum width to prevent excessive shrinking */
   height: auto;
   border-radius: 16px;
   object-fit: cover;

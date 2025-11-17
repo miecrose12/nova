@@ -11,6 +11,9 @@ import placeholder from '../../../src/assets/misc-37.svg'; // Add your placehold
 
 const Tribe = () => {
   return (
+    <div className='tribe-wrapper'>
+
+    
     <div className="tribe-container">
       {/* Left Section */}
       <div className="tribe-left">
@@ -88,6 +91,7 @@ const Tribe = () => {
           className="tribe-hero-image"
         />
       </div>
+    </div>
     </div>
   );
 };

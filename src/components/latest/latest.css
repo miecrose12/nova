@@ -9,11 +9,11 @@
 }
 
 .latest-container {
-  font-family: 'Inter', sans-serif;
-  padding: 60px 5%;
- max-width: 1300px;
+    width: 100%;
+  max-width: 1350px;
   margin: 0 auto;
-  background-color: #fff;
+  padding: 0 24px;
+  padding-top: 96px;
 }
 
 /* Header */
