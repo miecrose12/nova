@@ -339,13 +339,19 @@
     height: clamp(400px, 45vh, 450px); /* Larger relative height for tablet, maintains proportions */
   }
   
-  .left-card-image {
-    top: clamp(60px, 10vw, 79px);
-    left: clamp(60px, 10vw, 79px);
-    width: calc(100% - clamp(120px, 20vw, 158px));
-    height: calc(100% - clamp(120px, 20vw, 158px));
-  }
-  
+ .left-card-image {
+  position: absolute;
+  top: clamp(79px, 3.8vw, 39.28px);
+  left: 79px;
+  width: calc(100% - clamp(60px, 8vw, 80.46px));
+  height: calc(100% - clamp(60px, 8vw, 80.46px));
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: clamp(8px, 1.2vw, 10.06px);
+  border-bottom-right-radius: clamp(8px, 1.2vw, 10.06px);
+  z-index: 2;
+  object-fit: cover;
+}
   .right-grid {
     height: auto; /* Allows natural height matching */
     min-height: clamp(400px, 45vh, 450px); /* Matches left card for alignment */
@@ -358,7 +364,7 @@
   }
   
   .small-card-image {
-    width: calc(100% - clamp(45px, 8vw, 60px));
+    width: 232px;
     height: calc(100% - clamp(45px, 8vw, 60px));
   }
   
@@ -441,12 +447,19 @@
     height: clamp(350px, 42vh, 400px); /* Scaled for tablet */
   }
   
-  .left-card-image {
-    top: clamp(55px, 11vw, 70px);
-    left: clamp(55px, 11vw, 70px);
-    width: calc(100% - clamp(110px, 22vw, 140px));
-    height: calc(100% - clamp(110px, 22vw, 140px));
-  }
+.left-card-image {
+  position: absolute;
+  top: clamp(79px, 3.8vw, 39.28px);
+  left: 79px;
+  width: calc(100% - clamp(60px, 8vw, 80.46px));
+  height: calc(100% - clamp(60px, 8vw, 80.46px));
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: clamp(8px, 1.2vw, 10.06px);
+  border-bottom-right-radius: clamp(8px, 1.2vw, 10.06px);
+  z-index: 2;
+  object-fit: cover;
+}
   
   .right-grid {
     min-height: clamp(350px, 42vh, 400px);
@@ -460,7 +473,7 @@
   }
   
   .small-card-image {
-    width: calc(100% - clamp(45px, 8vw, 60px));
+     width: 202px;
     height: calc(100% - clamp(45px, 8vw, 60px));
   }
 }
@@ -539,17 +552,23 @@
   }
   
   .small-card-image {
-    width: calc(100% - clamp(35px, 9vw, 50px));
+     width: 162px;
     height: calc(100% - clamp(35px, 9vw, 50px));
   }
   
-  .left-card-image {
-    top: clamp(48px, 12vw, 60px);
-    left: clamp(48px, 12vw, 60px);
-    width: calc(100% - clamp(96px, 24vw, 120px));
-    height: calc(100% - clamp(96px, 24vw, 120px));
-    border-radius: clamp(7px, 2vw, 9px);
-  }
+ .left-card-image {
+  position: absolute;
+  top: clamp(79px, 3.8vw, 39.28px);
+  left: 79px;
+  width: calc(100% - clamp(60px, 8vw, 80.46px));
+  height: calc(100% - clamp(60px, 8vw, 80.46px));
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: clamp(8px, 1.2vw, 10.06px);
+  border-bottom-right-radius: clamp(8px, 1.2vw, 10.06px);
+  z-index: 2;
+  object-fit: cover;
+}
   
   .cta {
     gap: 10px;
@@ -625,13 +644,19 @@
     height: clamp(260px, 38vh, 300px); /* Maximized for tiny screens */
   }
   
-  .left-card-image {
-    top: clamp(48px, 12vw, 60px);
-    left: clamp(48px, 12vw, 60px);
-    width: calc(100% - clamp(96px, 24vw, 120px));
-    height: calc(100% - clamp(96px, 24vw, 120px));
-    border-radius: clamp(7px, 2vw, 9px);
-  }
+ .left-card-image {
+  position: absolute;
+  top: clamp(79px, 3.8vw, 39.28px);
+  left: 79px;
+  width: calc(100% - clamp(60px, 8vw, 80.46px));
+  height: calc(100% - clamp(60px, 8vw, 80.46px));
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: clamp(8px, 1.2vw, 10.06px);
+  border-bottom-right-radius: clamp(8px, 1.2vw, 10.06px);
+  z-index: 2;
+  object-fit: cover;
+}
   
   .right-grid {
     gap: clamp(8px, 3vw, 12px); /* Tighter gap for small screen 2x2 */
@@ -644,9 +669,9 @@
     max-width: 150px; /* Compact width to fit 2x2 without overflow */
   }
   
-  .small-card-image {
-    width: calc(100% - clamp(30px, 8vw, 45px));
-    height: calc(100% - clamp(30px, 8vw, 45px));
+   .small-card-image {
+    width: 132px;
+    height: calc(100% - clamp(45px, 8vw, 60px));
   }
   
   .cta {
